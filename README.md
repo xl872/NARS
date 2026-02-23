@@ -32,13 +32,13 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
 
 2. Repository Structure
    
-/NARS_pipeline/
+- /NARS_pipeline/
 
-/Glu_photometry/
+- /Glu_photometry/
 
-/T1T2_mapping/
+- /T1T2_mapping/
 
-/helper/ (custom functions)
+- /helper/ (custom functions)
 
 3. Example datasets:
    
