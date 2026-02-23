@@ -6,6 +6,7 @@ This repository contains the MATLAB and AFNI scripts used to generate the primar
 The workflows are organized to enable reproduction of the major figures, statistical analyses, and validation experiments  described in the manuscript. Each analysis script is explicitly linked to manuscript figure panels to facilitate transparent reproduction and editorial assessment.
 -
 Script	Primary Output	Linked Manuscript Panels
+
 QC_phase_$date.m	Phase stability and SNR metrics	Fig. 1
 
 GLM_NARS_$date.m	ß / t-statistic maps	Fig. 2-3; Supp Fig. 4-5
