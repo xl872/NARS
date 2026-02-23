@@ -1,0 +1,121 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 455
+'[xl872@yulab2: Wed Feb  5 15:06:22 2025] to3d -omri -prefix 20250204Na.100.an200epi -session /home/xl872/Documents/mouse_data/20250204Na/200_proc/M1T2/ -view orig -xFOV 6.00R-L -yFOV 6.00S-I -zFOV 3.00A-P -skip_outliers 3D:0:0:15:15:10:/home/xl872/Documents/raw_data/20250204Na/100/pdata/1/2dseq\n[xl872@yulab2: Wed Feb  5 16:51:22 2025] Drawing plugin COPY: Fill->Zero Type->Func\n[xl872@yulab2: Wed Feb  5 16:52:32 2025] Drawing plugin COPY: Fill->Data~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_0IqgffjH8HUkItfzaW0JbA~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Wed Feb  5 16:52:32 2025~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 0 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 30
+'CCOPY_20250204Na.100.an200epi~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 5 3
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+           -5.6            5.6           -2.7
+
+type  = float-attribute
+name  = DELTA
+count = 3
+            0.8           -0.8            0.6
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+            0.8              0              0           -5.6              0
+              0            0.6           -2.7              0           -0.8
+              0            5.6
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+            0.8              0              0           -5.6              0
+              0            0.6           -2.7              0           -0.8
+              0            5.6
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+              0              1
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 15 15 10 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 1
+'~
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~
