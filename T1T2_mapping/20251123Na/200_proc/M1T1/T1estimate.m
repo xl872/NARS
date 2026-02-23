@@ -1,0 +1,235 @@
+clc;clear all;close all;
+% time=[5 10 15 20 25 30 40 50 65 80 100 150 200 250 350];
+mask=BrikLoad('ROI+orig.BRIK');
+data=[];BG=[];
+raw='/home/xl872/Documents/raw_data/'; %raw data path to find the mathod file
+dd=dir('*.an200epi+orig.BRIK'); %the anat data can not be name as xxxepixxx
+time=[];
+for d=1:length(dd)
+    
+    data0=squeeze(BrikLoad([dd(d).folder,'/',dd(d).name]));
+     e=split(dd(d).name,'.');
+    date=e{1};
+    enm=e{2};
+    filename = ([raw,date,'/',enm,'/method']);
+    fid = fopen(filename,'r');
+    lines = textscan(fid, '%s', 'Delimiter', '\n');
+    lines=lines{:};
+    lineidx=find(strncmp(lines,'##$PVM_RepetitionTime=',16));
+    B0=split([lines{lineidx}],'=');
+    B=str2num(B0{2});
+    time(d)=B;
+    
+    % loads a series of data with a number to string conversion
+    
+    %filter size of 3 (2*ceil(2*sigma)+1
+    bg=data0([1,end],[1:2,end-1:end],:);
+    BG=cat(2,BG,bg(:));
+    data0=imgaussfilt3(data0,0.5);
+    %soothes out the voxels using 3D gaussian filter with 0.5 sigma for the
+    data=cat(4,data,data0);
+    
+    % concatenates the data with the dimenson of time(4)
+end
+[time,id]=sort(time);
+data=data(:,:,:,id);
+BG=BG(:,id);
+%%
+figure
+imagesc(data0(:,:,7)'); 
+%%
+figure
+imagesc(mask(:,:,7)'); 
+%%
+figure;
+subplot(2,1,1)
+boxplot(BG);
+xticklabels(num2str(time'))
+ylabel('Image amplitude')
+title('Backgroud value')
+subplot(2,1,2)
+scatter(time,std(BG),'filled');
+ylabel('Backgroud STD')
+xlabel('TR (s)')
+xlim("tight")
+
+fontsize(gcf,12,"points")
+print(gcf,[pwd,'\Baseline.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'\Baseline.eps'],'-depsc','-r300');
+%%
+mask=BrikLoad('ROI+orig.BRIK');
+% mask(:,6:end,:)=0;
+data_std=std(BG);
+endn=length(time);
+%amount of time points we want to use
+
+data1=data(:,:,:,1:endn);
+data1=data1.*repmat(mask,1,1,1,size(data1,4));
+tdata=squeeze(sum(data1,[1,2,3]))/sum(mask,"all")./std(BG)';
+
+% tdata=adata/num;%not normalized
+fo = fitoptions('Method','NonlinearLeastSquares',...
+   'Lower',[0,0,0],...
+   'Upper',[Inf,100, Inf],...
+   'StartPoint',[tdata(1) 50 tdata(end)]);
+ft = fittype('c+a*(1-exp(-x/b))','options',fo); 
+result = fit(time(1:end)', tdata(1:end),ft);
+result.b
+result1=result;tdata1=tdata;
+%
+figure(Position=[100 100 400 300]);
+plot(result,time(1:end)', tdata(1:end))
+fontsize(gcf,12,"points")
+ylabel('SNR')
+xlabel('TR (ms)')
+title(['T1=',num2str(result.b),'ms'])
+legend('Location', 'southeast');
+print(gcf,[pwd,'\aveT1estimate.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'\aveT1estimate.eps'],'-depsc','-r300');
+
+
+%% use CSF mask
+mask=BrikLoad('CSF+orig.BRIK');
+data_std=std(BG);
+endn=length(time);
+%amount of time points we want to use
+
+data1=data(:,:,:,1:endn);
+data1=data1.*repmat(mask,1,1,1,size(data1,4));
+tdata=squeeze(sum(data1,[1,2,3]))/sum(mask,"all")./std(BG)';
+
+% tdata=adata/num;%not normalized
+fo = fitoptions('Method','NonlinearLeastSquares',...
+   'Lower',[0,0,0],...
+   'Upper',[Inf,100, Inf],...
+   'StartPoint',[tdata(1) 50 tdata(end)]);
+ft = fittype('c+a*(1-exp(-x/b))','options',fo); 
+result = fit(time(1:end)', tdata(1:end),ft);
+result.b
+result2=result;tdata2=tdata;
+%
+figure(Position=[100 100 400 300]);
+plot(result,time(1:end)', tdata(1:end))
+fontsize(gcf,12,"points")
+ylabel('SNR')
+xlabel('TR (ms)')
+title(['CSF T1=',num2str(result.b),'ms'])
+legend('Location', 'southeast');
+print(gcf,[pwd,'\CSFaveT1estimate.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'\CSFaveT1estimate.eps'],'-depsc','-r300');
+%% compare COR(ROI) and CSF
+
+
+figure(Position=[100 100 400 300]);
+plot(result1,'r')
+hold on
+scatter(time(1:end)', tdata1(1:end),'r','.')
+
+plot(result2,'b')
+scatter(time(1:end)', tdata2(1:end),'b','.')
+
+legend({'Cortex fitted','Cortex data','CSF fitted','CSF data'},'Box','off')
+fontsize(gcf,10,"points")
+ylabel('SNR')
+xlabel('TE (ms)')
+title({['CortexVT1=',num2str(result1.b),'ms'] ['CSFVT1=',num2str(result2.b),'ms']})
+legend(Location='southeast')
+print(gcf,[pwd,'\aveT1_CSF&COTestimate.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'\aveT1_CSF&COTestimate.eps'],'-depsc','-r300');
+%%
+mask=BrikLoad('ROI+orig.BRIK');
+maskCor=mask;
+% maskCor(:,6:end,:)=0;
+maskCSF=BrikLoad('ROI+orig.BRIK');
+data=data(:,:,:,:);
+T2=[];Tdata1=[];Tdata2=[];
+for i=1:size(data,1)
+    for j=1:size(data,2)
+       for k=1:size(data,3)
+            if mask(i,j,k)~=0
+                % fo = fitoptions('Method','NonlinearLeastSquares',...
+                %    'Lower',[0,0,0,0,0],...
+                %    'Upper',[Inf,100, Inf,Inf,100],...
+                %    'StartPoint',[tdata(1)/2 0.01 mdata/2 tdata(1)/100 10]);
+                % ft = fittype('c+a*exp(-x/b)+d*exp(-x/e)','options',fo); 
+                % % contains addition to the function to calculate T2
+                % result = fit(time', squeeze(data(i,j,k,:)),ft);
+                % T2f(i,j,k)=min(result.b,result.e);
+                % T2s(i,j,k)=max(result.b,result.e);
+                tdata=squeeze(data(i,j,k,:))./data_std';
+
+                if maskCor(i,j,k)==1
+                    Tdata1=[Tdata1 tdata];
+                elseif maskCSF(i,j,k)==1
+                    Tdata2=[Tdata2 tdata];
+                end
+                fo = fitoptions('Method','NonlinearLeastSquares',...
+                   'Lower',[0,0,0],...
+                   'Upper',[Inf,100, Inf],...
+                   'StartPoint',[tdata(1) 50 tdata(end)]);
+                ft = fittype('c+a*(1-exp(-x/b))','options',fo); 
+                result = fit(time(1:end)', tdata(1:end),ft);
+                T2(i,j,k)=result.b;
+            else
+                T2(i,j,k)=0;
+            end
+
+       end
+    end
+end
+
+%%
+anat=squeeze(BrikLoad('ave_temp+orig.BRIK'));
+
+mask=BrikLoad('ROI+orig.BRIK');
+maskt=mask;
+
+for sl=7
+
+figure(Position=[100 100 400 300]);
+
+B=anat(:,:,sl)';
+B=repmat(B,1,1,3)/max(B(:))*1;
+hB = image(B);%axis xy
+axis image off;
+hold on;
+F=T2(:,:,sl)';
+% F=imresize(F,[size(B,1),size(B,2)],"bilinear");
+hF = imagesc(F);%axis xy
+colormap('jet')
+% clim([0 50]);
+alphadata =0.5*maskt(:,:,sl)';% 
+set(hF,'AlphaData',alphadata);
+h = colorbar;
+ylabel(h, 'T1* (ms)');
+fontsize(gcf,12,"points")
+
+print(gcf,[pwd,'/T1estimate',num2str(sl),'.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'/T1estimate',num2str(sl),'.eps'],'-depsc','-r300');
+end
+%%
+figure;
+
+
+fo = fitoptions('Method','NonlinearLeastSquares',...
+                   'Lower',[0,0,0],...
+                   'Upper',[Inf,100, Inf],...
+                   'StartPoint',[tdata(1) 5 tdata(end)]);
+                ft = fittype('c+a*(1-exp(-x/b))','options',fo); 
+                result1 = fit(repmat(time(1:end)',[size(Tdata1,2),1]), Tdata1(:),ft);
+                
+                result2 = fit(repmat(time(1:end)',[size(Tdata2,2),1]), Tdata2(:),ft);
+plot(result1)
+hold on
+plot(result2,'b')
+scatter(time,Tdata1,'r','filled');
+
+scatter(time,Tdata2,'b','filled');
+title(['Cor T1=',num2str(result1.b),'ms CSF T1=',num2str(result2.b),'ms'])
+fontsize(gcf,12,"points")
+legend('Location', 'southeast');
+ylabel('SNR')
+xlabel('TE (ms)')
+legend({'fitted Cortex' 'fitted CSF'});
+print(gcf,[pwd,'\allT1estimate.jpg'],'-djpeg','-r300');
+print(gcf,[pwd,'\allT1estimate.eps'],'-depsc','-r300');
