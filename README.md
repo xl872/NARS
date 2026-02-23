@@ -50,7 +50,7 @@ Resampling-Based Stability Analysis
 NARS-Glu Cross-Modal Analysis
 23Na T1/T2* Characterization
 
-5. NARS-fMRI Functional Analysis: /NARS_pipeline/
+5. NARS-fMRI Functional Analysis: /NARS_pipeline/
 a.  Trial Quality Control
 Script: QC_phase_$date.m
 Function:
@@ -69,7 +69,7 @@ Function:
 Notes for reviewers:
 Voxelwise FDR is not emphasized due to sparse focal activation patterns; reproducibility is instead evaluated using cross-species consistency and resampling-based stability.
 Manuscript linkage:
-- Produces voxelwise ß-coefficient and t-statistic maps shown in Fig. 23 and Supplementary Fig. 45. Implements the GLM framework used for cross-species NARS-fMRI functional mapping.
+- Produces voxelwise ß-coefficient and t-statistic maps shown in Fig. 2-3 and Supplementary Fig. 4-5. Implements the GLM framework used for cross-species NARS-fMRI functional mapping.
 
 c. Resampling-Based Reliability Analysis
 Script: Randomized_$date.m
