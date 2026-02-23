@@ -46,9 +46,9 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
   
 - Rat_0227(directory)
   
--Mouse_0522_Na_Glu(directory)
+- Mouse_0522_Na_Glu(directory)
 
--T1T2_mapping/xxxxxxxxNa (directory)
+- T1T2_mapping/xxxxxxxxNa (directory)
 
 4. Analysis Workflow Overview (Recommended Execution Order)
    
