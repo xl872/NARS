@@ -90,7 +90,7 @@ Function:
 - Executes GLM refitting over ~1000 repetitions
 - Quantifies spatial and statistical stability
 Manuscript linkage:
-- Reproduces the resampling-based stability analyses shown in Supplementary Fig. 78 and quantifies robustness of localized activation patterns across randomized trial subsets.
+- Reproduces the resampling-based stability analyses shown in Supplementary Fig. 7-8 and quantifies robustness of localized activation patterns across randomized trial subsets.
 
 6. Simultaneous NARS-fMRI and Glutamate Fiber Photometry: /Glu_photometry/
 
