@@ -7,8 +7,8 @@ The workflows are organized to enable reproduction of the major figures, statist
 -
 Script	Primary Output	Linked Manuscript Panels
 QC_phase_$date.m	Phase stability and SNR metrics	Fig. 1
-GLM_NARS_$date.m	ß / t-statistic maps	Fig. 2-3; Supp Fig. 4-5
-Randomized_$date.m	Resampling stability analysis	Supp Fig. 7-8
+GLM_NARS_$date.m	ß / t-statistic maps	Fig. 2-3; Supp Fig. 4-5
+Randomized_$date.m	Resampling stability analysis	Supp Fig. 7-8
 NARS_Glu_$date.m	Peak-response scatter analysis	Fig. 4
 T2_all.m / T1_all.m	Relaxometry maps	Supp Fig. 1
 
