@@ -40,11 +40,11 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
 -T1T2_mapping(directory)
 
 4. Analysis Workflow Overview (Recommended Execution Order)
-?Quality Control and Trial Assessment
-?GLM Functional Mapping
-?Resampling-Based Stability Analysis
-?NARSGlu Cross-Modal Analysis
-?23Na T1/T2* Characterization
+Quality Control and Trial Assessment
+GLM Functional Mapping
+Resampling-Based Stability Analysis
+NARS-Glu Cross-Modal Analysis
+23Na T1/T2* Characterization
 
 5. NARS-fMRI Functional Analysis: /NARS_pipeline/
 a.  Trial Quality Control
