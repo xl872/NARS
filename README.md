@@ -42,13 +42,13 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
 
 3. Example datasets:
    
-- Mouse_0220(directory)
+- Mouse_0220: https://doi.org/10.7910/DVN/7EUJB9
   
-- Rat_0227(directory)
+- Rat_0227: https://doi.org/10.7910/DVN/7EUJB9
   
-- Mouse_0522_Na_Glu(directory)
+- Mouse_0522_Na_Glu (Glu data:https://doi.org/10.7910/DVN/JU3KIS)
 
-- T1T2_mapping/xxxxxxxxNa (directory)
+- T1T2_mapping/xxxxxxxxNa 
 
 4. Analysis Workflow Overview (Recommended Execution Order)
    
