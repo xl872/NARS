@@ -1,0 +1,121 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 1107
+'[xl872@yulab2: Tue Jan 21 14:08:11 2025] to3d -omri -prefix 20250120Na.21.an200epi -session /home/xl872/Documents/mouse_data/20250120Na/200_proc/T2/ -view orig -xFOV 6.00R-L -yFOV 6.00S-I -zFOV A-P -skip_outliers 3D:0:0:15:15:10:/home/xl872/Documents/raw_data/20250120Na/21/pdata/1/2dseq\n[xl872@yulab2: Wed Nov 26 12:52:19 2025] {AFNI_24.0.09:linux_centos_7_64} 3dMean -prefix ave_temp 20250120Na.21.an200epi+orig.HEAD 20250120Na.23.an200epi+orig.HEAD 20250120Na.25.an200epi+orig.HEAD 20250120Na.26.an200epi+orig.HEAD 20250120Na.27.an200epi+orig.HEAD 20250120Na.28.an200epi+orig.HEAD 20250120Na.29.an200epi+orig.HEAD 20250120Na.30.an200epi+orig.HEAD 20250120Na.31.an200epi+orig.HEAD 20250120Na.32.an200epi+orig.HEAD 20250120Na.33.an200epi+orig.HEAD 20250120Na.34.an200epi+orig.HEAD 20250120Na.44.an200epi+orig.HEAD 20250120Na.45.an200epi+orig.HEAD 20250120Na.46.an200epi+orig.HEAD 20250120Na.47.an200epi+orig.HEAD 20250120Na.48.an200epi+orig.HEAD\n[xl872@yulab2: Wed Nov 26 12:54:07 2025] Drawing plugin COPY: Fill->Zero Type->Func\n[xl872@yulab2: Wed Nov 26 12:54:17 2025] Drawing plugin COPY: Fill->Data~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_GgjhMRXk2SOSh3qYIuWGYg~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Wed Nov 26 12:54:17 2025~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 0 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 15
+'CCOPY_ave_temp~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 5 3
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+           -5.6            5.6             -0
+
+type  = float-attribute
+name  = DELTA
+count = 3
+            0.8           -0.8            0.8
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+            0.8              0              0           -5.6              0
+              0            0.8              0              0           -0.8
+              0            5.6
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+            0.8              0              0           -5.6              0
+              0            0.8             -0              0           -0.8
+              0            5.6
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+              0              1
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 15 15 10 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 1
+'~
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~
