@@ -7,15 +7,15 @@ The workflows are organized to enable reproduction of the major figures, statist
 -
 Script	Primary Output	Linked Manuscript Panels
 
-QC_phase_$date.m	Phase stability and SNR metrics	Fig. 1
+QC_phase_$date.m:	Phase stability and SNR metrics,	Fig. 1
 
-GLM_NARS_$date.m	ß / t-statistic maps	Fig. 2-3; Supp Fig. 4-5
+GLM_NARS_$date.m:	ß / t-statistic maps,	Fig. 2-3; Supp Fig. 4-5
 
-Randomized_$date.m	Resampling stability analysis	Supp Fig. 7-8
+Randomized_$date.m:	Resampling stability analysis,	Supp Fig. 7-8
 
-NARS_Glu_$date.m	Peak-response scatter analysis	Fig. 4
+NARS_Glu_$date.m:	Peak-response scatter analysis,	Fig. 4
 
-T2_all.m / T1_all.m	Relaxometry maps	Supp Fig. 1
+T2TQestimateDlimited_Cortex2TEFIX.m, T2TQestimateDlimited_Cortex2TE.m, T2compare.m / T1estimatePlot.m:	Relaxometry maps,	Supp Fig. 1
 
 All scripts were developed and tested using MATLAB (2025a) and AFNI (Version 24.0.09). Minor path adjustments may be required depending on the local computing environment.
 
@@ -48,7 +48,7 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
   
 -Mouse_0522_Na_Glu(directory)
 
--T1T2_mapping(directory)
+-T1T2_mapping/xxxxxxxxNa (directory)
 
 4. Analysis Workflow Overview (Recommended Execution Order)
    
@@ -108,10 +108,11 @@ Manuscript linkage:
 
 7. 23Na T1 and T2* mapping: /T1T2_mapping/
 
-Script: T2_all.m  and T1_all.m
+T2*: T2TQestimateDlimited_Cortex2TEFIX.m, T2TQestimateDlimited_Cortex2TE.m, T2compare.m
+T1: T1estimatePlot.m
 
 Function:
-- Performs T2* biexponential fitting using fixed-ratio and free-ratio models
+- Performs T2* biexponential fitting using fixed-ratio and free-ratio models; plots the comparison.
 - Fits multi-TR acquisitions to estimate T1 relaxation maps
 
 Outputs:
