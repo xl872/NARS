@@ -52,15 +52,15 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
 
 4. Analysis Workflow Overview (Recommended Execution Order)
    
-Quality Control and Trial Assessment
+- Quality Control and Trial Assessment
 
-GLM Functional Mapping
+- GLM Functional Mapping
 
-Resampling-Based Stability Analysis
+- Resampling-Based Stability Analysis
 
-NARS-Glu Cross-Modal Analysis
+- NARS-Glu Cross-Modal Analysis
 
-23Na T1/T2* Characterization
+- 23Na T1/T2* Characterization
 
 5. NARS-fMRI Functional Analysis: /NARS_pipeline/
 a.  Trial Quality Control
@@ -108,8 +108,8 @@ Manuscript linkage:
 
 7. 23Na T1 and T2* mapping: /T1T2_mapping/
 
-T2*: T2TQestimateDlimited_Cortex2TEFIX.m, T2TQestimateDlimited_Cortex2TE.m, T2compare.m
-T1: T1estimatePlot.m
+- T2*: T2TQestimateDlimited_Cortex2TEFIX.m, T2TQestimateDlimited_Cortex2TE.m, T2compare.m
+- T1: T1estimatePlot.m
 
 Function:
 - Performs T2* biexponential fitting using fixed-ratio and free-ratio models; plots the comparison.
