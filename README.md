@@ -33,21 +33,33 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
 2. Repository Structure
    
 /NARS_pipeline/
+
 /Glu_photometry/
+
 /T1T2_mapping/
+
 /helper/ (custom functions)
 
 3. Example datasets:
+   
 - Mouse_0220(directory)
+  
 - Rat_0227(directory)
+  
 -Mouse_0522_Na_Glu(directory)
+
 -T1T2_mapping(directory)
 
 4. Analysis Workflow Overview (Recommended Execution Order)
+   
 Quality Control and Trial Assessment
+
 GLM Functional Mapping
+
 Resampling-Based Stability Analysis
+
 NARS-Glu Cross-Modal Analysis
+
 23Na T1/T2* Characterization
 
 5. NARS-fMRI Functional Analysis: /NARS_pipeline/
@@ -80,20 +92,28 @@ Function:
 Manuscript linkage:
 - Reproduces the resampling-based stability analyses shown in Supplementary Fig. 78 and quantifies robustness of localized activation patterns across randomized trial subsets.
 
-6. Simultaneous NARS-fMRI and Glutamate Fiber Photometry: /Glu_photometry/
+6. Simultaneous NARS-fMRI and Glutamate Fiber Photometry: /Glu_photometry/
+
 Script: NARS_Glu_$date.m
+
 Function:
+
 - Aligns trial-resolved NARS-fMRI responses with glutamate photometry signals
 - Sorts trials based on Glu amplitude
 - Generates scatter plots of peak sodium vs. Glu responses
+
 Manuscript linkage:
+
 - Generates the cross-modal peak-response analysis shown in Fig. 4 and supports interpretation of NARS-fMRI signals relative to glutamatergic activity dynamics.
 
-7. 23Na T1 and T2* mapping: /T1T2_mapping/ »
+7. 23Na T1 and T2* mapping: /T1T2_mapping/
+
 Script: T2_all.m  and T1_all.m
+
 Function:
 - Performs T2* biexponential fitting using fixed-ratio and free-ratio models
 - Fits multi-TR acquisitions to estimate T1 relaxation maps
+
 Outputs:
 - Produces T1 and biexponential T2* fitting results shown in Supplementary Fig. 1 and provides relaxation parameters used to interpret NARS-fMRI signal mechanisms.
 
@@ -104,7 +124,11 @@ Data Availability and Reproducibility Notes
 - Scripts were used without blinding, as analyses were fully automated.
 
 Contact
+
 Xin Yu, Xiaochen Liu
+
 Email: xyu9@mgh.harvard.edu
+
 Translational Neuroimaging & Neural Control Laboratory
+
 Massachusetts General Hospital / Harvard Medical School
