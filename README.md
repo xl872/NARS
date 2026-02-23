@@ -20,14 +20,18 @@ T2_all.m / T1_all.m	Relaxometry maps	Supp Fig. 1
 All scripts were developed and tested using MATLAB (2025a) and AFNI (Version 24.0.09). Minor path adjustments may be required depending on the local computing environment.
 
 1. Software and Dependencies
+   
 - MATLAB (Version 2025a)
   - Signal Processing Toolbox
   - Statistics and Machine Learning Toolbox
   - Image Processing Toolbox
+    
 - AFNI (Version 24.0.09)
+  
 Custom helper functions are located in /helper/ and must be added to the MATLAB path before execution.
 
 2. Repository Structure
+   
 /NARS_pipeline/
 /Glu_photometry/
 /T1T2_mapping/
