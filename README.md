@@ -4,11 +4,11 @@ README: Reproducible Analysis Workflows for NARS-fMRI
 
 This repository contains the MATLAB and AFNI scripts used to generate the primary results reported in the NARS-fMRI study (Yu et al. Biorxiv, 2026, https://doi.org/10.64898/2026.02.09.704765)
 The workflows are organized to enable reproduction of the major figures, statistical analyses, and validation experiments  described in the manuscript. Each analysis script is explicitly linked to manuscript figure panels to facilitate transparent reproduction and editorial assessment.
-Manuscript Linkage Table
+-
 Script	Primary Output	Linked Manuscript Panels
 QC_phase_$date.m	Phase stability and SNR metrics	Fig. 1
-GLM_NARS_$date.m	ß / t-statistic maps	Fig. 23; Supp Fig. 45
-Randomized_$date.m	Resampling stability analysis	Supp Fig. 78
+GLM_NARS_$date.m	ß / t-statistic maps	Fig. 2-3; Supp Fig. 4-5
+Randomized_$date.m	Resampling stability analysis	Supp Fig. 7-8
 NARS_Glu_$date.m	Peak-response scatter analysis	Fig. 4
 T2_all.m / T1_all.m	Relaxometry maps	Supp Fig. 1
 
