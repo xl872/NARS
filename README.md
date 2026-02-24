@@ -120,7 +120,7 @@ Outputs:
 
 Data Availability and Reproducibility Notes
 - Example datasets are included to demonstrate full pipeline functionality.
-- AFNI preprocessing scripts for BOLD can be assessed through XXXX Gib link by Xiaochen
+- AFNI preprocessing scripts for BOLD can be assessed through https://github.com/xl872/awake-mice-pupil-fMRI-analysis.git by Xiaochen
 - Randomized resampling is implemented to evaluate robustness against pseudo-positive activation patterns.
 - Scripts were used without blinding, as analyses were fully automated.
 
