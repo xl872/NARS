@@ -48,7 +48,7 @@ Custom helper functions are located in /helper/ and must be added to the MATLAB 
   
 - Mouse_0522_Na_Glu (Glu data:https://doi.org/10.7910/DVN/JU3KIS)
 
-- T1T2_mapping/mmddyyyyxNa 
+- T1T2_mapping/yyyymmddNa 
 
 4. Analysis Workflow Overview (Recommended Execution Order)
    
